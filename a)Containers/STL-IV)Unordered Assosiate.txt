@@ -1,0 +1,195 @@
+       Standard Template Library (STL) : a)Containers : IV)Unordered Assosiate - 
+			1)unordered_set, 2)unordered_map, 3)unordered_multiset, 4)unordered_multimap
+
+1)unordered_set:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    unordered_set<int>s;
+    s.insert(2);
+    s.insert(5);
+    s.insert(6);
+    s.insert(1);
+    s.insert(0);
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    //s.erase(s.begin()); it is used for only delete 1st ele
+    unordered_set<int>::iterator it=s.begin(); // we can use also "auto it=s.begin();"
+    it++;
+    s.erase(it);
+    cout<<"after erase:"<<endl;
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"present or not:"<<s.count(5)<<endl;
+    cout<<"size:"<<s.size()<<endl;
+    auto itr=s.find(5);
+    for(auto it=itr;it!=s.end();it++){
+        cout<<*it<<endl;
+    }
+}
+
+//output:
+0 1 6 5 2 
+after erase:
+0 6 5 2 
+present or not:1
+size:4
+5
+2
+
+2)unordered_map:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    unordered_map<int,string>m;
+    m[1]="kim";
+    m[3]="v";
+    m[2]="jm";
+    m[12]="jk";
+    m.insert({5,"tae"});
+    for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"before erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    m.erase(3);
+    cout<<"after erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"find 3:"<<m.count(3)<<endl;
+    auto it=m.find(5); // map<int,string>::iterator it=s.find(5);
+    for(auto i=it;i!=m.end();i++){
+        cout<<(*i).first<<endl;
+    }
+}
+
+//output:
+5 - tae
+12 - jk
+2 - jm
+3 - v
+1 - kim
+before erase:5
+5 - tae
+12 - jk
+2 - jm
+3 - v
+1 - kim
+after erase:4
+5 - tae
+12 - jk
+2 - jm
+1 - kim
+find 3:0
+5
+12
+2
+1
+
+3)unordered_multiset:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    unordered_multiset<int>s;
+    s.insert(2);
+    s.insert(5);
+    s.insert(6);
+    s.insert(1);
+    s.insert(0);
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    //s.erase(s.begin()); it is used for only delete 1st ele
+    unordered_multiset<int>::iterator it=s.begin(); // we can use also "auto it=s.begin();"
+    it++;
+    s.erase(it);
+    cout<<"after erase:"<<endl;
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"present or not:"<<s.count(5)<<endl;
+    cout<<"size:"<<s.size()<<endl;
+    auto itr=s.find(5);
+    for(auto it=itr;it!=s.end();it++){
+        cout<<*it<<endl;
+    }
+}
+
+//output:
+0 1 6 5 2 
+after erase:
+0 6 5 2 
+present or not:1
+size:4
+5
+2
+
+4)unordered_multimap:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    unordered_multimap<int,string>m;
+    m.insert({1,"kim"});
+    m.insert({3,"v"});
+    m.insert({2,"jm"});
+    m.insert({12,"jk"});
+    m.insert({5,"tae"});
+    
+   /* multimap<int,string>m={
+                {1,"kim"},
+                {3,"v"},
+                {2,"jm"},
+                {12,"jk"},
+                {5,"tae"}
+                };*/
+    for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"before erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    m.erase(3);
+    cout<<"after erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"find 3:"<<m.count(3)<<endl;
+    auto it=m.find(5); // unordered_multimap<int,string>::iterator it=s.find(5);
+    for(auto i=it;i!=m.end();i++){
+        cout<<(*i).first<<endl;
+    }
+}
+
+//output:
+5 - tae
+12 - jk
+2 - jm
+3 - v
+1 - kim
+before erase:5
+5 - tae
+12 - jk
+2 - jm
+3 - v
+1 - kim
+after erase:4
+5 - tae
+12 - jk
+2 - jm
+1 - kim
+find 3:0
+5
+12
+2
+1
+=== Code Execution Successful ===

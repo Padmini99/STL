@@ -1,0 +1,229 @@
+	Standard Template Library (STL) : a)Containers : I)Sequential Containers -			                                          1)array, 2)vector, 3)deque, 4)list, 5)forward_list
+
+1)Array:
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+    //intialize
+    array<int,4>a={1,2,3,4};
+    int size=a.size();
+    for(int i=0;i<size;i++){
+        cout<<a.at(i)<<endl; //cout<<a[i]<<endl;
+    }
+    cout<<"2nd ele:"<<a.at(2)<<endl;
+    cout<<"empty or not:"<<a.empty()<<endl;
+    cout<<"first ele:"<<a.front()<<endl;
+    cout<<"last ele:"<<a.back()<<endl;
+    return 0;
+}
+
+//output:
+1
+2
+3
+4
+2nd ele:3
+empty or not:0
+first ele:1
+last ele:4
+
+2)Vector:
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+    /*vector<int>v(5,1);
+    for(int i:v){
+        cout<<i<<endl;
+    }*/
+    //intialize
+    vector<int>v;
+    cout<<"capacity:"<<v.capacity()<<endl;
+    v.push_back(1);
+    cout<<"capacity:"<<v.capacity()<<endl;
+    v.push_back(2);
+    cout<<"capacity:"<<v.capacity()<<endl;
+    v.push_back(3);
+    cout<<"capacity:"<<v.capacity()<<endl;
+    cout<<"size:"<<v.size()<<endl;
+    v.push_back(4);
+    cout<<"capacity:"<<v.capacity()<<endl;
+    cout<<"size:"<<v.size()<<endl;
+    v.push_back(5);
+    cout<<"capacity:"<<v.capacity()<<endl;
+    cout<<"size:"<<v.size()<<endl;
+    
+    cout<<"2nd ele:"<<v.at(2)<<endl;
+    cout<<"empty or not:"<<v.empty()<<endl;
+    cout<<"first ele:"<<v.front()<<endl;
+    cout<<"last ele:"<<v.back()<<endl;
+    cout<<"before pop:"<<v.size()<<endl;
+    for(int i:v){
+        cout<<i<<" ";
+    }cout<<endl;
+    v.pop_back();
+    cout<<"after pop:"<<v.size()<<endl;
+    for(int i:v){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"before erase:"<<v.size()<<endl;
+    for(int i:v){
+        cout<<i<<" ";
+    }cout<<endl;
+    v.erase(v.begin(),v.begin()+2);  // we can delete one ele : v.erase(v.begin());
+    cout<<"after erase:"<<v.size()<<endl;
+    for(int i:v){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"before clear:"<<v.size()<<endl;
+    v.clear();
+    cout<<"after clear:"<<v.size()<<endl;
+    return 0;
+}
+
+//output:
+capacity:0                                           
+capacity:1
+capacity:2
+capacity:4
+size:3
+capacity:4
+size:4
+capacity:8
+size:5
+2nd ele:3
+empty or not:0
+first ele:1
+last ele:5
+before pop:5
+1 2 3 4 5 
+after pop:4
+1 2 3 4 
+before erase:4
+1 2 3 4 
+after erase:2
+3 4 
+before clear:2
+after clear:0
+
+3)Deque: 
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+   //create
+   deque<int>d;
+   d.push_back(1);
+   d.push_front(2);
+   d.push_back(3);
+   d.push_back(4);
+   for(int i : d){
+       cout<<i<<" ";
+   }cout<<endl;
+   
+   cout<<"2nd ele:"<<d.at(2)<<endl;
+    cout<<"empty or not:"<<d.empty()<<endl;
+    cout<<"first ele:"<<d.front()<<endl;
+    cout<<"last ele:"<<d.back()<<endl;
+    cout<<"before pop:"<<d.size()<<endl;
+    for(int i:d){
+        cout<<i<<" ";
+    }cout<<endl;
+    d.pop_front(); // we can delete front ele : d.pop_front();
+    cout<<"after pop:"<<d.size()<<endl;
+    for(int i:d){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"before erase:"<<d.size()<<endl;
+    for(int i:d){
+        cout<<i<<" ";
+    }cout<<endl;
+    d.erase(d.begin(),d.begin()+2); // we can delete one ele : d.erase(d.begin());
+    cout<<"after erase:"<<d.size()<<endl;
+    for(int i:d){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"before clear:"<<d.size()<<endl;
+    d.clear();
+    cout<<"after clear:"<<d.size()<<endl;
+    return 0;
+}
+
+//output:
+2 1 3 4 
+2nd ele:3
+empty or not:0
+first ele:2
+last ele:4
+before pop:4
+2 1 3 4 
+after pop:3
+1 3 4 
+before erase:3
+1 3 4 
+after erase:1
+4 
+before clear:1
+after clear:0
+
+4)List:
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    // Write C++ code here
+   //create
+   list<int>l;
+   l.push_back(1);
+   l.push_front(2);
+   l.push_back(3);
+   l.push_back(4);
+   for(int i : l){
+       cout<<i<<" ";
+   }cout<<endl;
+    cout<<"empty or not:"<<l.empty()<<endl;
+    cout<<"first ele:"<<l.front()<<endl;
+    cout<<"last ele:"<<l.back()<<endl;
+    cout<<"before pop:"<<l.size()<<endl;
+    for(int i:l){
+        cout<<i<<" ";
+    }cout<<endl;
+    l.pop_front(); // we can delete front ele : d.pop_front();
+    cout<<"after pop:"<<l.size()<<endl;
+    for(int i:l){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"before erase:"<<l.size()<<endl;
+    for(int i:l){
+        cout<<i<<" ";
+    }cout<<endl;
+    l.erase(l.begin()); // we can delete one ele : d.erase(d.begin());
+    cout<<"after erase:"<<l.size()<<endl;
+    for(int i:l){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"before clear:"<<l.size()<<endl;
+    l.clear();
+    cout<<"after clear:"<<l.size()<<endl;
+    return 0;
+}
+
+//output:
+2 1 3 4 
+empty or not:0
+first ele:2
+last ele:4
+before pop:4
+2 1 3 4 
+after pop:3
+1 3 4 
+before erase:3
+1 3 4 
+after erase:2
+3 4 
+before clear:2
+after clear:0

@@ -1,0 +1,189 @@
+    Standard Template Library (STL) : a)Containers : III)Assosiate Containers - 
+						1)set, 2)map, 3)multiset, 4)multimap
+					
+1)Set:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    set<int>s;
+    s.insert(2);
+    s.insert(5);
+    s.insert(6);
+    s.insert(1);
+    s.insert(0);
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    //s.erase(s.begin()); it is used for only delete 1st ele
+    set<int>::iterator it=s.begin(); // we can use also "auto it=s.begin();"
+    it++;
+    s.erase(it);
+    cout<<"after erase:"<<endl;
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"present or not:"<<s.count(5)<<endl;
+    cout<<"size:"<<s.size()<<endl;
+    auto itr=s.find(5);
+    for(auto it=itr;it!=s.end();it++){
+        cout<<*it<<endl;
+    }
+}
+
+//output:
+after erase:
+0 2 5 6 
+present or not:1
+size:4
+5
+6
+
+2)Map:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    map<int,string>m;
+    m[1]="kim";
+    m[3]="v";
+    m[2]="jm";
+    m[12]="jk";
+    m.insert({5,"tae"});
+    for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"before erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    m.erase(3);
+    cout<<"after erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"find 3:"<<m.count(3)<<endl;
+    auto it=m.find(5); // map<int,string>::iterator it=s.find(5);
+    for(auto i=it;i!=m.end();i++){
+        cout<<(*i).first<<endl;
+    }
+}
+
+//output:
+1 - kim
+2 - jm
+3 - v
+5 - tae
+12 - jk
+before erase:5
+1 - kim
+2 - jm
+3 - v
+5 - tae
+12 - jk
+after erase:4
+1 - kim
+2 - jm
+5 - tae
+12 - jk
+find 3:0
+5
+12
+
+3)multiset:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    multiset<int>s;
+    s.insert(2);
+    s.insert(5);
+    s.insert(6);
+    s.insert(1);
+    s.insert(0);
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    //s.erase(s.begin()); it is used for only delete 1st ele
+    multiset<int>::iterator it=s.begin(); // we can use also "auto it=s.begin();"
+    it++;
+    s.erase(it);
+    cout<<"after erase:"<<endl;
+    for(int i : s){
+        cout<<i<<" ";
+    }cout<<endl;
+    cout<<"present or not:"<<s.count(5)<<endl;
+    cout<<"size:"<<s.size()<<endl;
+    auto itr=s.find(5);
+    for(auto it=itr;it!=s.end();it++){
+        cout<<*it<<endl;
+    }
+}
+
+//output:
+0 1 2 5 6 
+after erase:
+0 2 5 6 
+present or not:1
+size:4
+5
+6
+
+4)multimap:
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    multimap<int,string>m;
+    m.insert({1,"kim"});
+    m.insert({3,"v"});
+    m.insert({2,"jm"});
+    m.insert({12,"jk"});
+    m.insert({5,"tae"});
+    
+   /* multimap<int,string>m={
+                {1,"kim"},
+                {3,"v"},
+                {2,"jm"},
+                {12,"jk"},
+                {5,"tae"}
+                };*/
+    for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"before erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    m.erase(3);
+    cout<<"after erase:"<<m.size()<<endl;
+     for(auto i:m){
+        cout<<i.first<<" - "<<i.second<<endl;
+    }
+    cout<<"find 3:"<<m.count(3)<<endl;
+    auto it=m.find(5); // map<int,string>::iterator it=s.find(5);
+    for(auto i=it;i!=m.end();i++){
+        cout<<(*i).first<<endl;
+    }
+}
+
+//output:
+1 - kim
+2 - jm
+3 - v
+5 - tae
+12 - jk
+before erase:5
+1 - kim
+2 - jm
+3 - v
+5 - tae
+12 - jk
+after erase:4
+1 - kim
+2 - jm
+5 - tae
+12 - jk
+find 3:0
+5
+12
