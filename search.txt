@@ -1,0 +1,83 @@
+#include<bits/stdc++.h>
+using namespace std;
+// binary search
+int binary(int arr[],int n,int key){
+    int s=0,e=n-1;
+    int mid;
+    while(s<=e){
+        mid=s+((e-s)/2);
+        if(arr[mid]==key){
+            return mid;
+        }
+        if(arr[mid]<key){
+            s=mid+1;
+        }
+        else{
+            e=mid-1;
+        }
+    }
+    return -1;
+}
+// linear search
+int linear(int arr[],int n,int key){
+    for(int i=0;i<n;i++){
+        if(arr[i]==key){
+            return i;
+        }
+    }
+    return -1;
+}
+// reverse
+void reverse(int arr[],int n){
+    int s=0,e=n-1;
+    while(s<=e){
+        swap(arr[s],arr[e]);
+        s++;
+        e--;
+    }
+}
+void printarr(int arr[],int n){
+    cout<<"Reverse:";
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }cout<<endl;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[5];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int key;
+    cin>>key;
+    int found=binary(arr,n,key);
+    (found!=-1) ? cout<<"present:"<<found<<endl : cout<<"not present"<<endl;
+    // linear
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int key1;
+    cin>>key1;
+    int found1=linear(arr,n,key1);
+    (found1!=-1) ? cout<<"present:"<<found<<endl : cout<<"not present"<<endl;
+    // reverse 
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    reverse(arr,n);
+    printarr(arr,n);
+    
+}
+// OUTPUT : 
+4
+2 3 4 6
+4
+present:2
+3 1 4 2
+5
+not present
+3 4 1 5
+Reverse:5 1 4 3 
+=== Code Execution Successful ===
